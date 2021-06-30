@@ -1,8 +1,19 @@
 .App {
   text-align: center;
+
+  background-image: linear-gradient(black, black), url("./tenor.gif");
+  /* Full height */
+  height: 100vh;
+  background-blend-mode: saturation;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .App-logo {
+  margin-top: 5%;
   height: 40vmin;
   pointer-events: none;
 }
