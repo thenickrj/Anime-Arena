@@ -3,8 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import { useEffect, useState } from "react";
-var dataF = require("./quiz.json"); // forward slashes will depend on the file location
-
+import Quiz from "./Quiz";
 function App() {
   const [s, setS] = useState(false);
   const [json, setJson] = useState([]);
@@ -55,8 +54,7 @@ function App() {
         <Route exact path="/" component={Home} />
 
         <Route path="/quiz">
-          HERE WILL BE THE QUIZ!
-          <h2 onClick={testData}>HEYY</h2>
+          <Quiz />
         </Route>
       </Router>
     </div>
