@@ -1,6 +1,6 @@
 # Welcome to Anime Arena
 
-A Place for Otakus
+A Place for Otaku
 
 
 `Work in Progress`
