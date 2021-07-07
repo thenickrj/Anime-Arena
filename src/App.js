@@ -11,7 +11,9 @@ function App() {
   let sd = 0;
   useEffect(() => {
     // fetch("https://api.cantileverlabs.com/getAllblogs");
-    fetch("./data/data.js")
+    fetch(
+      "https://raw.githubusercontent.com/thenickrj/Anime-Arena/main/src/quiz.json"
+    )
       .then((response) => response.json())
       .then((data) => {
         // JSON.parse(data);
@@ -21,15 +23,20 @@ function App() {
         console.log(err);
       });
     console.log(json);
-  }, [sd]);
+  }, [s]);
+
+  function testData() {
+    fetch(
+      "https://raw.githubusercontent.com/thenickrj/Anime-Arena/main/src/quiz.json"
+    )
+      .then((response) => response.json())
+      .then((data) => setJson(data));
+  }
 
   const getData = () => {
-    fetch("quiz.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
+    fetch(
+      "https://raw.githubusercontent.com/thenickrj/Anime-Arena/main/src/quiz.json"
+    )
       .then(function (response) {
         console.log(response);
         return response.json();
@@ -41,7 +48,7 @@ function App() {
   };
   useEffect(() => {
     getData();
-  }, [s]);
+  }, [sd]);
   return (
     <div className="App">
       <Router>
@@ -49,13 +56,7 @@ function App() {
 
         <Route path="/quiz">
           HERE WILL BE THE QUIZ!
-          <h2
-            onClick={() => {
-              setS(!s);
-            }}
-          >
-            HEYY
-          </h2>
+          <h2 onClick={testData}>HEYY</h2>
         </Route>
       </Router>
     </div>
