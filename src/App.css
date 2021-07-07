@@ -1,7 +1,6 @@
 .App {
   text-align: center;
 
-  background-image: linear-gradient(black, black), url("./tenor.gif");
   /* Full height */
   height: 100vh;
   background-blend-mode: saturation;
@@ -12,6 +11,9 @@
   background-size: cover;
 }
 
+.homeApp {
+  background-image: linear-gradient(black, black), url("./Luffy.gif");
+}
 .App-logo {
   margin-top: 5%;
   height: 40vmin;
