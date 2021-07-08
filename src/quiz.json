@@ -1,13 +1,36 @@
 {
   "questions": [
     {
-      "question": "Who is the main character?",
+      "question": "Who is the main character in One Piece?",
       "A": "Luffy",
       "B": "Robin",
       "C": "Zoro",
       "D": "Sanji",
       "ans": "Luffy"
     },
-    { "name": "Zoro" }
+    {
+      "question": "Who is the main character in One Piece?",
+      "A": "Luffy",
+      "B": "Robin",
+      "C": "Zoro",
+      "D": "Sanji",
+      "ans": "Luffy"
+    },
+    {
+      "question": "Who is the main character in One Piece?",
+      "A": "Luffy",
+      "B": "Robin",
+      "C": "Zoro",
+      "D": "Sanji",
+      "ans": "Luffy"
+    },
+    {
+      "question": "Who is the main character in One Piece?",
+      "A": "Luffy",
+      "B": "Robin",
+      "C": "Zoro",
+      "D": "Sanji",
+      "ans": "Luffy"
+    }
   ]
 }
