@@ -12,23 +12,60 @@ function Quiz() {
       .then((response) => response.json())
       .then((data) => setQuestions(data.questions));
   }, []);
+
+  function handleChange(e) {
+    setAns(e.target.value);
+    console.log(e.target.value);
+  }
+
   return (
     <div>
-      <p onClick={() => console.log(questions)}>Click here to console it!</p>
+      <p onClick={() => console.log(ans)}>Click here to console it!</p>
+
       {questions.length > 0 &&
         questions.map((question) => (
           <div>
             <h1>{question.question}</h1>
             <div style={{ display: "flex", justifyContent: "space-around" }}>
-              <div>A:{question.A}</div>
-              <div>B:{question.B}</div>
-              <div>C:{question.C}</div>
-              <div>D:{question.D}</div>
-              <input
-                type="text"
-                // value={ans}
-                onChange={(e) => setAns(e.target.value)}
-              />
+              <label>
+                <input
+                  type="radio"
+                  value={question.A}
+                  checked={ans === question.A}
+                  onChange={(e) => handleChange(e)}
+                />
+                A:{question.A}
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value={question.B}
+                  checked={ans === question.B}
+                  onChange={(e) => handleChange(e)}
+                />
+                B:{question.B}
+              </label>
+              <label></label>
+
+              <label>
+                <input
+                  type="radio"
+                  value={question.C}
+                  checked={ans === question.C}
+                  onChange={(e) => handleChange(e)}
+                />
+                C:{question.C}
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value={question.D}
+                  checked={ans === question.D}
+                  onChange={(e) => handleChange(e)}
+                />
+                D:{question.D}
+              </label>
+              {ans === question.ans && console.log("ITS Correct")}
               <button onClick={() => console.log(question.ans)}>Click</button>
               {ans === question.ans && <h1>ITS CORRECT</h1>}
             </div>
