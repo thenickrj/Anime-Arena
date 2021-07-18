@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import { useEffect, useState } from "react";
 import Quiz from "./Quiz";
+import Animation from "./Animation";
 function App() {
   const [s, setS] = useState(false);
   const [json, setJson] = useState([]);
@@ -55,6 +56,10 @@ function App() {
 
         <Route path="/quiz">
           <Quiz />
+        </Route>
+
+        <Route path="/animation">
+          <Animation />
         </Route>
       </Router>
     </div>
