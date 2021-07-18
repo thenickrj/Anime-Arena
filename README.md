@@ -3,4 +3,4 @@
 A Place for Otaku
 
 
-`Work in Progress`
+`Work in Progress!`
