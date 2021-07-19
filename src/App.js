@@ -5,7 +5,7 @@ import Home from "./Home";
 import { useEffect, useState } from "react";
 import Quiz from "./Quiz";
 import Animation from "./Animation";
-import SampleQuiz from "./SampleQuiz";
+import SampleQuiz from "./components/Sample Quiz/SampleQuiz";
 function App() {
   const [s, setS] = useState(false);
   const [json, setJson] = useState([]);
