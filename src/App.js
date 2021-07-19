@@ -51,7 +51,7 @@ function App() {
     getData();
   }, [sd]);
   return (
-    <div className="App">
+    <div className="a">
       <Router>
         <Route exact path="/" component={Home} />
 
