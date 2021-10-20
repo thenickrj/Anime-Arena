@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Quiz from "./Quiz";
 import Animation from "./Animation";
 import SampleQuiz from "./components/Sample Quiz/SampleQuiz";
+import NewQuiz from "./components/NewQuiz";
 function App() {
   const [s, setS] = useState(false);
   const [json, setJson] = useState([]);
@@ -64,6 +65,10 @@ function App() {
         </Route>
         <Route path="/samplequiz">
           <SampleQuiz />
+        </Route>
+
+        <Route path="/newquiz">
+          <NewQuiz />
         </Route>
       </Router>
     </div>
