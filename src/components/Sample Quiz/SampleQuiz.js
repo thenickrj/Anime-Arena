@@ -5,7 +5,7 @@ const API_URL =
 
 function SampleQuiz() {
   return (
-    <div className="container bg-purple-500 flex justify-center items-center h-screen">
+    <div className=" bg-purple-500 flex justify-center items-center h-screen">
       <div className="bg-white text-purple-800 p-10 rounded-lg shadow-md">
         <h2 className="text-2xl">
           This is where we're going to have the question
