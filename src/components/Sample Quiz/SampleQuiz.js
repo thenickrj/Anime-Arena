@@ -1,30 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+// import Questionaire from "./";
+import { Questionaire } from "../../components";
 
 const API_URL =
   "https://opentdb.com/api.php?amount=10&category=14&difficulty=easy";
 
 function SampleQuiz() {
+  const [questions, setQuestions] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [score, setScore] = useState(0);
+  const [gameEnded, setGameEnded] = useState(false);
+
+  useEffect(() => {
+    fetch(API_URL)
+      .then((response) => response.json())
+      .then((data) => {
+        setQuestions(data.results);
+        // setCurrentIndex(data.results[0]);
+      });
+    console.log(questions[0]);
+  }, []);
+
+  const handleAnswer = (answer) => {
+    const newIndex = currentIndex + 1;
+    setCurrentIndex(newIndex);
+    setCurrentIndex(currentIndex + 1);
+
+    if (answer === questions[currentIndex].correct_answer) {
+      setScore(score + 1);
+    }
+
+    if (newIndex >= questions.length) {
+      setGameEnded(true);
+    }
+  };
+
   return (
     <div className=" bg-purple-500 flex justify-center items-center h-screen">
-      <div className="bg-white text-purple-800 p-10 rounded-lg shadow-md">
-        <h2 className="text-2xl">
-          This is where we're going to have the question
-        </h2>
-      </div>
-      <div className="flex flex-wrap mt-4 justify-around space-y-4">
-        <button className="bg-white w-2/5 p-4 text-purple-800 font-semibold rounded shadow">
-          Answer 1
-        </button>
-        <button className="bg-white w-2/5 p-4 text-purple-800 font-semibold rounded shadow">
-          Answer 2
-        </button>
-        <button className="bg-white w-2/5 p-4 text-purple-800 font-semibold rounded shadow">
-          Answer 3
-        </button>
-        <button className="bg-white w-2/5 p-4 text-purple-800 font-semibold rounded shadow">
-          Answer 4
-        </button>
-      </div>
+      {gameEnded ? (
+        <h1 className="text-3xl text-white font-bold">
+          Your score was {score}
+        </h1>
+      ) : questions.length > 0 ? (
+        <div style={{ width: "60%" }} className="container">
+          <Questionaire
+            data={questions[currentIndex]}
+            handleAnswer={handleAnswer}
+          />
+        </div>
+      ) : (
+        <h2 className="text-2xl text-white font-bold">Loading...</h2>
+      )}
     </div>
   );
 }
