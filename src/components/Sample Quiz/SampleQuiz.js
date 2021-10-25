@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Questionaire } from "../../components";
 
 const API_URL =
-  "https://opentdb.com/api.php?amount=10&category=14&difficulty=easy";
+  "https://opentdb.com/api.php?amount=10&category=14&difficulty=easy&type=multiple";
 
 function SampleQuiz() {
   const [questions, setQuestions] = useState([]);
@@ -23,7 +23,6 @@ function SampleQuiz() {
 
   const handleAnswer = (answer) => {
     const newIndex = currentIndex + 1;
-    setCurrentIndex(newIndex);
     setCurrentIndex(currentIndex + 1);
 
     if (answer === questions[currentIndex].correct_answer) {
@@ -37,16 +36,18 @@ function SampleQuiz() {
 
   return (
     <div className=" bg-purple-500 flex justify-center items-center h-screen">
-      {gameEnded ? (
-        <h1 className="text-3xl text-white font-bold">
-          Your score was {score}
-        </h1>
-      ) : questions.length > 0 ? (
+      {questions.length > 0 ? (
         <div style={{ width: "60%" }} className="container">
-          <Questionaire
-            data={questions[currentIndex]}
-            handleAnswer={handleAnswer}
-          />
+          {currentIndex >= questions.length ? (
+            <h1 className="text-3xl text-white font-bold">
+              Your score was {score}
+            </h1>
+          ) : (
+            <Questionaire
+              data={questions[currentIndex]}
+              handleAnswer={handleAnswer}
+            />
+          )}
         </div>
       ) : (
         <h2 className="text-2xl text-white font-bold">Loading...</h2>
