@@ -10,28 +10,44 @@ function SampleQuiz() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [gameEnded, setGameEnded] = useState(false);
+  const [showAnswers, setShowAnswers] = useState(false);
 
   useEffect(() => {
     fetch(API_URL)
       .then((response) => response.json())
       .then((data) => {
         setQuestions(data.results);
-        // setCurrentIndex(data.results[0]);
+        const questions = data.results.map((question) => ({
+          ...question,
+          answers: [
+            question.correct_answer,
+            ...question.incorrect_answers,
+          ].sort(() => Math.random()),
+        }));
+        setQuestions(questions);
       });
-    console.log(questions[0]);
   }, []);
 
   const handleAnswer = (answer) => {
-    const newIndex = currentIndex + 1;
+    // const newIndex = currentIndex + 1;
+    // setCurrentIndex(currentIndex + 1);
+
+    if (!showAnswers) {
+      if (answer === questions[currentIndex].correct_answer) {
+        setScore(score + 1);
+      }
+    }
+
+    setShowAnswers(true);
+
+    // if (newIndex >= questions.length) {
+    //   setGameEnded(true);
+    // }
+  };
+
+  const handleNextQuestion = () => {
+    setShowAnswers(false);
     setCurrentIndex(currentIndex + 1);
-
-    if (answer === questions[currentIndex].correct_answer) {
-      setScore(score + 1);
-    }
-
-    if (newIndex >= questions.length) {
-      setGameEnded(true);
-    }
   };
 
   return (
@@ -40,12 +56,14 @@ function SampleQuiz() {
         <div style={{ width: "60%" }} className="container">
           {currentIndex >= questions.length ? (
             <h1 className="text-3xl text-white font-bold">
-              Your score was {score}
+              Game ended! Your score is: {score}
             </h1>
           ) : (
             <Questionaire
               data={questions[currentIndex]}
+              showAnswers={showAnswers}
               handleAnswer={handleAnswer}
+              handleNextQuestion={handleNextQuestion}
             />
           )}
         </div>

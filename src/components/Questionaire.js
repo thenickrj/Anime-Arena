@@ -9,15 +9,17 @@ const Button = ({ answer, className }) => (
 );
 
 function Questionaire({
-  data: { question, correct_answer, incorrect_answers },
+  data: { question, correct_answer, answers },
   handleAnswer,
+  showAnswers,
+  handleNextQuestion,
 }) {
-  const shuffledAnswers = [correct_answer, ...incorrect_answers].sort(
+  const shuffledAnswers = [correct_answer, ...answers].sort(
     () => Math.random() - 0.5
   );
 
   return (
-    <div>
+    <div className="flex flex-col">
       <div className="bg-white text-purple-800 p-10 rounded-lg shadow-md">
         <h2
           className="text-2xl"
@@ -29,16 +31,36 @@ function Questionaire({
         </h2>
       </div>
       <div className="grid grid-cols-2 gap-6 mt-6">
-        {shuffledAnswers.map((answer) => (
-          <button
-            className="bg-white p-4 text-purple-800 font-semibold rounded shadow"
-            onClick={() => handleAnswer(answer)}
-            dangerouslySetInnerHTML={{
-              __html: answer,
-            }}
-          />
-        ))}
+        {answers.map((answer, idx) => {
+          const bgColor = showAnswers
+            ? answer === correct_answer
+              ? "bg-green-500"
+              : "bg-red-500"
+            : "bg-white";
+          const textColor = showAnswers ? "text-white" : "text-purple-700";
+
+          return (
+            <button
+              key={idx}
+              className={`${bgColor} ${textColor} p-4  font-semibold rounded shadow`}
+              onClick={() => handleAnswer(answer)}
+              dangerouslySetInnerHTML={{
+                __html: answer,
+              }}
+            />
+          );
+        })}
       </div>
+      {showAnswers && (
+        <button
+          onClick={handleNextQuestion}
+          className={
+            "ml-auto bg-purple-700 text-white p-4 font-semibold rounded shadow mt-6"
+          }
+        >
+          Next Question
+        </button>
+      )}
     </div>
   );
 }
