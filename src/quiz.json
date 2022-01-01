@@ -34,30 +34,6 @@
       "question": "Who is not a Jonin?",
       "correct_answer": "Iruka",
       "incorrect_answers": ["Might Guy", "Asuma", "Kakashi"]
-    },
-    {
-      "question": "Who is the main character in One Piece?",
-      "A": "Luffy",
-      "B": "Robin",
-      "C": "Zoro",
-      "D": "Sanji",
-      "ans": "Luffy"
-    },
-    {
-      "question": "Who is the main character in One Piece?",
-      "A": "Luffy",
-      "B": "Robin",
-      "C": "Zoro",
-      "D": "Sanji",
-      "ans": "Luffy"
-    },
-    {
-      "question": "Who is the main character in One Piece?",
-      "A": "Luffy",
-      "B": "Robin",
-      "C": "Zoro",
-      "D": "Sanji",
-      "ans": "Luffy"
     }
   ]
 }
