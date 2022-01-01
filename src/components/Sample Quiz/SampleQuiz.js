@@ -17,14 +17,15 @@ function SampleQuiz() {
       .then((response) => response.json())
       .then((data) => {
         setQuestions(data.results);
-        const questions = data.results.map((question) => ({
+        const questionsFiltered = data.results.map((question) => ({
           ...question,
           answers: [
             question.correct_answer,
             ...question.incorrect_answers,
           ].sort(() => Math.random()),
         }));
-        setQuestions(questions);
+        setQuestions(questionsFiltered);
+        // console.log(questions);
       });
   }, []);
 
@@ -49,6 +50,8 @@ function SampleQuiz() {
     setShowAnswers(false);
     setCurrentIndex(currentIndex + 1);
   };
+
+  console.log(questions[currentIndex]);
 
   return (
     <div className=" bg-purple-500 flex justify-center items-center h-screen">

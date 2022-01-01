@@ -9,6 +9,8 @@ import SampleQuiz from "./components/Sample Quiz/SampleQuiz";
 import NewQuiz from "./components/NewQuiz";
 import Glass from "./components/Glass Effect/Glass";
 import Login from "./components/Login/Login";
+import NavBar from "./components/NavBar/NavBar";
+
 function App() {
   const [s, setS] = useState(false);
   const [json, setJson] = useState([]);
@@ -59,6 +61,8 @@ function App() {
         <Route exact path="/" component={Home} />
 
         <Route path="/quiz">
+          <NavBar />
+
           <Quiz />
         </Route>
 

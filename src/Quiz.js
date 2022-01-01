@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from "react";
+import NavBar from "./components/NavBar/NavBar";
+import Questionaire from "./components/Quiz/Questionaire";
 
 function Quiz() {
-  const [show, setShow] = useState(false);
-  const [ans, setAns] = useState(false);
-  //   let ans = "";
   const [questions, setQuestions] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [score, setScore] = useState(0);
+  const [gameEnded, setGameEnded] = useState(false);
+  const [showAnswers, setShowAnswers] = useState(false);
+
+  let API_URL =
+    "https://raw.githubusercontent.com/thenickrj/Anime-Arena/main/src/quiz.json";
+
   useEffect(() => {
     fetch(
       "https://raw.githubusercontent.com/thenickrj/Anime-Arena/main/src/quiz.json"
@@ -13,64 +20,55 @@ function Quiz() {
       .then((data) => setQuestions(data.questions));
   }, []);
 
-  function handleChange(e) {
-    setAns(e.target.value);
-    console.log(e.target.value);
-  }
+  useEffect(() => {
+    fetch(API_URL)
+      .then((response) => response.json())
+      .then((data) => {
+        const questionsFiltered = data.questions.map((question) => ({
+          ...question,
+          answers: [
+            question.correct_answer,
+            ...question.incorrect_answers,
+          ].sort(() => Math.random() - 0.5),
+        }));
+        setQuestions(questionsFiltered);
+      });
+  }, []);
+
+  const handleAnswer = (answer) => {
+    if (!showAnswers) {
+      if (answer === questions[currentIndex].correct_answer) {
+        setScore(score + 1);
+      }
+    }
+    setShowAnswers(true);
+  };
+
+  const handleNextQuestion = () => {
+    setShowAnswers(false);
+    setCurrentIndex(currentIndex + 1);
+  };
 
   return (
-    <div>
-      <p onClick={() => console.log(ans)}>Click here to console it!</p>
-
-      {questions.length > 0 &&
-        questions.map((question) => (
-          <div>
-            <h1>{question.question}</h1>
-            <div style={{ display: "flex", justifyContent: "space-around" }}>
-              <label>
-                <input
-                  type="radio"
-                  value={question.A}
-                  checked={ans === question.A}
-                  onChange={(e) => handleChange(e)}
-                />
-                A:{question.A}
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  value={question.B}
-                  checked={ans === question.B}
-                  onChange={(e) => handleChange(e)}
-                />
-                B:{question.B}
-              </label>
-              <label></label>
-
-              <label>
-                <input
-                  type="radio"
-                  value={question.C}
-                  checked={ans === question.C}
-                  onChange={(e) => handleChange(e)}
-                />
-                C:{question.C}
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  value={question.D}
-                  checked={ans === question.D}
-                  onChange={(e) => handleChange(e)}
-                />
-                D:{question.D}
-              </label>
-              {ans === question.ans && console.log("ITS Correct")}
-              <button onClick={() => console.log(question.ans)}>Click</button>
-              {ans === question.ans && <h1>ITS CORRECT</h1>}
-            </div>
-          </div>
-        ))}
+    <div className=" bg-purple-500 flex justify-center items-center h-screen">
+      {questions.length > 0 ? (
+        <div style={{ width: "60%" }} className="container">
+          {currentIndex >= questions.length ? (
+            <h1 className="text-3xl text-white font-bold">
+              Game ended! Your score is: {score}
+            </h1>
+          ) : (
+            <Questionaire
+              data={questions[currentIndex]}
+              showAnswers={showAnswers}
+              handleAnswer={handleAnswer}
+              handleNextQuestion={handleNextQuestion}
+            />
+          )}
+        </div>
+      ) : (
+        <h2 className="text-2xl text-white font-bold">Loading...</h2>
+      )}
     </div>
   );
 }

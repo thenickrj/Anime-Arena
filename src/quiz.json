@@ -1,36 +1,39 @@
 {
   "questions": [
     {
+      "id": 1,
+      "anime": "One Piece",
       "question": "Who is the main character in One Piece?",
-      "A": "Luffy",
-      "B": "Robin",
-      "C": "Zoro",
-      "D": "Sanji",
-      "ans": "Luffy"
+      "correct_answer": "Luffy",
+      "incorrect_answers": ["Sanji", "Robin", "Zoro"]
     },
     {
-      "question": "Who is the main character in One Piece?",
-      "A": "Luffy",
-      "B": "Robin",
-      "C": "Zoro",
-      "D": "Sanji",
-      "ans": "Luffy"
+      "id": 2,
+      "anime": "One Piece",
+      "question": "Who wants to be the world strongest swords man?",
+      "correct_answer": "Zoro",
+      "incorrect_answers": ["Brook", "Oden", "Shanks"]
     },
     {
+      "id": 3,
+      "anime": "One Piece",
       "question": "Who is the main character in One Piece?",
-      "A": "Luffy",
-      "B": "Robin",
-      "C": "Zoro",
-      "D": "Sanji",
-      "ans": "Luffy"
+      "correct_answer": "Luffy",
+      "incorrect_answers": ["Sanji", "Robin", "Zoro"]
     },
     {
+      "id": 4,
+      "anime": "One Piece",
       "question": "Who is the main character in One Piece?",
-      "A": "Luffy",
-      "B": "Robin",
-      "C": "Zoro",
-      "D": "Sanji",
-      "ans": "Luffy"
+      "correct_answer": "Luffy",
+      "incorrect_answers": ["Sanji", "Robin", "Zoro"]
+    },
+    {
+      "id": 5,
+      "anime": "Naruto",
+      "question": "Who is not a Jonin?",
+      "correct_answer": "Iruka",
+      "incorrect_answers": ["Might Guy", "Asuma", "Kakashi"]
     }
   ]
 }

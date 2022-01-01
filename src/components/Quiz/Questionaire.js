@@ -1,24 +1,12 @@
 import React from "react";
 
-const Button = ({ answer, className }) => (
-  <button
-    className={`bg-white p-4 text-purple-800 font-semibold rounded shadow ${className}`}
-  >
-    {answer}
-  </button>
-);
-
 function Questionaire({
   data: { question, correct_answer, answers },
   handleAnswer,
   showAnswers,
   handleNextQuestion,
 }) {
-  // const shuffledAnswers = [correct_answer, ...answers].sort(
-  //   () => Math.random() - 0.5
-  // );
-  console.log(answers);
-
+  console.log(question, answers);
   return (
     <div className="flex flex-col">
       <div className="bg-white text-purple-800 p-10 rounded-lg shadow-md">
@@ -32,7 +20,7 @@ function Questionaire({
         </h2>
       </div>
       <div className="grid grid-cols-2 gap-6 mt-6">
-        {answers.map((answer, idx) => {
+        {answers?.map((answer, idx) => {
           const bgColor = showAnswers
             ? answer === correct_answer
               ? "bg-green-500"
