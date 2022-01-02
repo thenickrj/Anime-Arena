@@ -13,14 +13,6 @@ function Quiz() {
     "https://raw.githubusercontent.com/thenickrj/Anime-Arena/main/src/quiz.json";
 
   useEffect(() => {
-    fetch(
-      "https://raw.githubusercontent.com/thenickrj/Anime-Arena/main/src/quiz.json"
-    )
-      .then((response) => response.json())
-      .then((data) => setQuestions(data.questions));
-  }, []);
-
-  useEffect(() => {
     fetch(API_URL)
       .then((response) => response.json())
       .then((data) => {
@@ -31,7 +23,11 @@ function Quiz() {
             ...question.incorrect_answers,
           ].sort(() => Math.random() - 0.5),
         }));
-        setQuestions(questionsFiltered);
+        const shuffledQuestions = questionsFiltered
+          .sort(() => Math.random() - 0.5)
+          .splice(0, 10);
+
+        setQuestions(shuffledQuestions);
       });
   }, []);
 
@@ -58,12 +54,18 @@ function Quiz() {
               Game ended! Your score is: {score}
             </h1>
           ) : (
-            <Questionaire
-              data={questions[currentIndex]}
-              showAnswers={showAnswers}
-              handleAnswer={handleAnswer}
-              handleNextQuestion={handleNextQuestion}
-            />
+            <>
+              <h2 className="text-2xl text-white m-2">
+                {" "}
+                Question Number : {currentIndex + 1}
+              </h2>
+              <Questionaire
+                data={questions[currentIndex]}
+                showAnswers={showAnswers}
+                handleAnswer={handleAnswer}
+                handleNextQuestion={handleNextQuestion}
+              />
+            </>
           )}
         </div>
       ) : (

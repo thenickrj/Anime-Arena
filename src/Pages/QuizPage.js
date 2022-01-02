@@ -6,7 +6,7 @@ import Quiz from "../Quiz";
 function QuizPage() {
   return (
     <div className="bg-purple-500 h-screen">
-      <NavBar />
+      {/* <NavBar /> */}
       <QuizFilter />
       <Quiz />
     </div>
