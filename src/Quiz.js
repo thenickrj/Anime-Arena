@@ -50,7 +50,7 @@ function Quiz() {
   };
 
   return (
-    <div className=" bg-purple-500 flex justify-center items-center h-screen">
+    <div className="  flex justify-center pt-10">
       {questions.length > 0 ? (
         <div style={{ width: "60%" }} className="container">
           {currentIndex >= questions.length ? (

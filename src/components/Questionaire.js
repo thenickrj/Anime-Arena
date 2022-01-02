@@ -32,7 +32,7 @@ function Questionaire({
         </h2>
       </div>
       <div className="grid grid-cols-2 gap-6 mt-6">
-        {answers.map((answer, idx) => {
+        {answers?.map((answer, idx) => {
           const bgColor = showAnswers
             ? answer === correct_answer
               ? "bg-green-500"

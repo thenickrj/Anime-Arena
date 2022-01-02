@@ -10,6 +10,7 @@ import NewQuiz from "./components/NewQuiz";
 import Glass from "./components/Glass Effect/Glass";
 import Login from "./components/Login/Login";
 import NavBar from "./components/NavBar/NavBar";
+import QuizPage from "./Pages/QuizPage";
 
 function App() {
   const [s, setS] = useState(false);
@@ -61,9 +62,7 @@ function App() {
         <Route exact path="/" component={Home} />
 
         <Route path="/quiz">
-          <NavBar />
-
-          <Quiz />
+          <QuizPage />
         </Route>
 
         <Route path="/animation">
