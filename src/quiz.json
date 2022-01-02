@@ -24,9 +24,9 @@
     {
       "id": 4,
       "anime": "One Piece",
-      "question": "Who is the main character in One Piece?",
-      "correct_answer": "Luffy",
-      "incorrect_answers": ["Sanji", "Robin", "Zoro"]
+      "question": "Who resigned from the position of Warlord?",
+      "correct_answer": "Doflamingo",
+      "incorrect_answers": ["Jimbei", "Moriah", "Jimbei"]
     },
     {
       "id": 5,
@@ -34,6 +34,73 @@
       "question": "Who is not a Jonin?",
       "correct_answer": "Iruka",
       "incorrect_answers": ["Might Guy", "Asuma", "Kakashi"]
+    },
+    {
+      "id": 6,
+      "anime": "Dragon Ball Z",
+      "question": " A wounded Z fighter would restore the full health by using which item?",
+      "correct_answer": "Senzu Bean",
+      "incorrect_answers": ["Capsule Medicine", "Saiyan Liquid", "Potara"]
+    },
+    {
+      "id": 7,
+      "anime": "Dragon Ball Z",
+      "question": "How did Goku reach the planet of King Kai first time?",
+      "correct_answer": "Walk along the Snake Way",
+      "incorrect_answers": [
+        "Korin Tower",
+        "Teleport instantly",
+        "Call the Dragon God to make a wish"
+      ]
+    },
+    {
+      "id": 8,
+      "anime": "Dragon Ball Z",
+      "question": "What is the name of Goku's father?",
+      "correct_answer": "Bardock",
+      "incorrect_answers": ["Goten", "Cabba", "Turles"]
+    },
+    {
+      "id": 9,
+      "anime": "Dragon Ball Z",
+      "question": "One minute in the in the real world is equivalent to how much time in the  Hyperbolic Time Chamber?",
+      "correct_answer": "6 Hours",
+      "incorrect_answers": ["1 Day", "1 Year", "600 minutes"]
+    },
+    {
+      "id": 10,
+      "anime": "Dragon Ball Z",
+      "question": "What is the highest level of Super Saiyan that Vegeta can reach?",
+      "correct_answer": "Level 2",
+      "incorrect_answers": ["Level 1", "Level 3", "Level 4"]
+    },
+    {
+      "id": 11,
+      "anime": "Dragon Ball Z",
+      "question": "Which wearable device is used by the Frieza’s army to measure power levels?",
+      "correct_answer": "Scouter",
+      "incorrect_answers": ["Gourd of Mist", "Radar", "Power Pole"]
+    },
+    {
+      "id": 12,
+      "anime": "Dragon Ball Z",
+      "question": "Which race does Piccolo belong to?",
+      "correct_answer": "Namekian",
+      "incorrect_answers": ["Human", "Hybrid", "Saiyan"]
+    },
+    {
+      "id": 13,
+      "anime": "Dragon Ball Z",
+      "question": "Goku learnt his Instant Transmission skill in which planet?",
+      "correct_answer": "Planet Yardrat",
+      "incorrect_answers": ["Planet Kaishin", "Planet Namek", "Planet Earth"]
+    },
+    {
+      "id": 14,
+      "anime": "Dragon Ball Z",
+      "question": "What is the name of Goku's wife?",
+      "correct_answer": "Chi Chi",
+      "incorrect_answers": ["Hinata", "Hancock", "Launch"]
     }
   ]
 }
